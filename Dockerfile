@@ -37,6 +37,15 @@ RUN wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.
     chmod +x dotnet-install.sh && ./dotnet-install.sh -c 7.0 && \
     ln -s /root/.dotnet/dotnet /usr/bin/dotnet
 
+
+# Install required packages (gcc, g++, MySQL Connector/C++, and others)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    libmysqlcppconn-dev \
+    wget \
+    && apt-get clean
+
 # Set working directory
 WORKDIR /app
 
@@ -50,6 +59,7 @@ RUN chmod +x /app/scripts/php/run_php.sh
 RUN chmod +x /app/scripts/javascript/run_js.sh
 RUN chmod +x /app/scripts/dotnet/run_dotnet.sh
 RUN chmod +x /app/scripts/go/run_go.sh
+RUN chmod +x /app/scripts/cplus/run_c.sh
 
 # Default command
 CMD ["bash"]
