@@ -53,13 +53,13 @@ WORKDIR /app
 COPY code /app/code
 COPY scripts /app/scripts
 
-RUN chmod +x /app/scripts/java/run_java.sh
-RUN chmod +x /app/scripts/python/run_python.sh
-RUN chmod +x /app/scripts/php/run_php.sh
-RUN chmod +x /app/scripts/javascript/run_js.sh
-RUN chmod +x /app/scripts/dotnet/run_dotnet.sh
-RUN chmod +x /app/scripts/go/run_go.sh
-RUN chmod +x /app/scripts/cplus/run_c.sh
+RUN chmod +x /app/scripts/java/run_java.sh && \
+    chmod +x /app/scripts/python/run_python.sh && \
+    chmod +x /app/scripts/php/run_php.sh && \
+    chmod +x /app/scripts/javascript/run_js.sh && \
+    chmod +x /app/scripts/dotnet/run_dotnet.sh && \
+    chmod +x /app/scripts/go/run_go.sh && \
+    chmod +x /app/scripts/cplus/run_c.sh
 
 # Default command
 CMD ["bash"]
