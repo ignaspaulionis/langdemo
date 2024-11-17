@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    depends_on:
+      - mysql
+    volumes:
+      - ./code:/app/code
+      - ./scripts:/app/scripts
+    working_dir: /app
+    command: tail -f /dev/null
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+    ports:
+      - "3306:3306"
