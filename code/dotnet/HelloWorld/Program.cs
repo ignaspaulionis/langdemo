@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string connectionString = "Server=localhost;Database=testdb;User=testuser1;Password=testpass1;";
+        string connectionString = "Server=localhost;Database=testdb;User=testuser;Password=testpass;";
         
         using (var connection = new MySqlConnection(connectionString))
         {
